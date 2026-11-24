@@ -1,0 +1,35 @@
+{
+  "_comment": "Paste the \"marketingOs\" block below into data/config.json (a top-level key, next to \"email\", \"db\", \"brand\", etc.). This file is only an example — the app reads data/config.json.",
+
+  "marketingOs": {
+    "enabled": false,
+    "endpoint": "http://127.0.0.1:8765",
+    "token": "PASTE_THE_job_server_token_FROM_MARKETING_OS_HERE",
+    "timeoutMs": 20000,
+    "autoPublish": false,
+    "anyPlatform": false,
+    "fetchVisual": true,
+    "dedupeHours": 20,
+    "brief": { "enabled": true, "timeoutMs": 120000 },
+
+    "products": {
+      "TrackForce": { "pageName": "TrackForce", "kind": "auto", "skill": "general-static" },
+      "Travilo":    { "pageName": "Travilo",    "kind": "auto" },
+      "Turbo Addons": { "pageId": "1000000000000", "kind": "static" },
+      "ChannelSync":  { "accountId": 3, "kind": "video" }
+    }
+  },
+
+  "_field_notes": {
+    "enabled": "Master on/off. Leave false until you've filled in token + products.",
+    "endpoint": "Where marketing-os listens. Default port 8765; change with the marketing-os setting job_server_port.",
+    "token": "Copy from marketing-os: settings key job_server_token (printed to its console on boot, or read from data/harness.db settings). Must match or requests are rejected.",
+    "timeoutMs": "How long to wait for the /generate POST to be accepted (not for the render).",
+    "autoPublish": "false = marketing-os renders and holds the post in Create Studio for you to review/publish. true = it auto-runs the publish gate (duplicate + QC) and posts to the page.",
+    "anyPlatform": "false = only trigger on the best FACEBOOK post. true = fall back to the best post on any platform if there was no Facebook post.",
+    "dedupeHours": "A product that already has a live (non-failed) generation inside this window is not triggered again — this stops a rebuilt/re-sent report (a new report id) firing a second job. Manual `cli.js generate` bypasses it. Default 20.",
+    "fetchVisual": "true = try to fetch the competitor creative (image/video URL) as a visual reference for the brief. Falls back to text-only if it can't.",
+    "brief.enabled": "true = write the creative brief with the Claude CLI (grounded in the KB). false = use a plain template built from the captured analysis (no LLM call).",
+    "products": "Map each product name (exactly as it appears in radar_sources.product) to its brand page. Address the page by ONE of: pageName (matches facebook_accounts.page_name), pageId (facebook_accounts.page_id), or accountId (facebook_accounts.id). kind: 'auto' mirrors the competitor post (video/reel -> video, else static), or force 'video' | 'static' | 'meme'. skill (optional) picks the marketing-os generation skill."
+  }
+}

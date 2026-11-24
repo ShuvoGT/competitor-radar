@@ -1,0 +1,95 @@
+{
+  "db": {
+    "host": "YOUR_DB_HOST",
+    "port": 5432,
+    "database": "competitor_radar",
+    "user": "YOUR_DB_USER",
+    "password": "YOUR_DB_PASSWORD",
+    "ssl": false
+  },
+  "brand": {
+    "name": "Akij iBOS",
+    "products": [
+      "Managerium",
+      "PeopleDesk",
+      "PrimeVAT",
+      "Travilo",
+      "TrackForce",
+      "Turbo Guard"
+    ],
+    "keywords": [
+      "Akij iBOS",
+      "iBOS",
+      "TrackForce",
+      "PeopleDesk",
+      "Managerium",
+      "PrimeVAT",
+      "Travilo",
+      "Turbo Guard"
+    ],
+    "notifyPositive": false,
+    "notifyNegative": true,
+    "alertThreshold": null
+  },
+  "email": {
+    "enabled": true,
+    "host": "smtp.gmail.com",
+    "port": 587,
+    "secure": false,
+    "user": "you@example.com",
+    "pass": "YOUR_SMTP_APP_PASSWORD",
+    "fromName": "Competitor Radar",
+    "from": "you@example.com",
+    "replyTo": "you@example.com",
+    "to": [
+      "team@example.com"
+    ],
+    "cc": []
+  },
+  "notify": {
+    "channels": [
+      "email"
+    ],
+    "teamsWebhook": "",
+    "whatsapp": {
+      "token": "",
+      "phoneNumberId": "",
+      "to": ""
+    },
+    "apiVersion": "v21.0"
+  },
+  "schedule": {
+    "scanHour": 2,
+    "reportHour": 9,
+    "brandCheckHours": 3,
+    "timezoneOffset": 6,
+    "dailyTime": "09:00",
+    "scanTime": "02:00",
+    "timezone": "Asia/Dhaka",
+    "enabled": true,
+    "catchUp": true
+  },
+  "analysis": {
+    "provider": "claude",
+    "model": ""
+  },
+  "stt": {
+    "apiKey": "",
+    "model": "whisper-1"
+  },
+  "chrome": {
+    "userDataDir": "",
+    "profileDirectory": null,
+    "bin": null
+  },
+  "python": {
+    "bin": null
+  },
+  "kb": {
+    "enabled": true,
+    "repo": "https://gitlab.ibos.io/ibos-kb/ibos-kb",
+    "branch": null,
+    "maxChars": 12000,
+    "token": ""
+  }
+}

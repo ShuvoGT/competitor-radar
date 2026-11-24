@@ -1,0 +1,28 @@
+{
+  "name": "competitor-radar",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone competitor & brand intelligence radar — ad intelligence, social/web monitoring, brand mentions, competitor analysis, daily reports.",
+  "main": "src/index.js",
+  "bin": {
+    "radar": "cli.js"
+  },
+  "scripts": {
+    "start": "node src/ui.js",
+    "prestart": "node scripts/ensure-deps.js",
+    "ui": "node src/ui.js",
+    "preui": "node scripts/ensure-deps.js",
+    "radar": "node src/ui.js",
+    "preradar": "node scripts/ensure-deps.js",
+    "scan": "node cli.js scan",
+    "report": "node cli.js report",
+    "monitor": "node cli.js monitor",
+    "schema": "node cli.js schema"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^7.0.0",
+    "pg": "^8.13.0"
+  }
+}

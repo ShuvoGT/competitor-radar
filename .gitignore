@@ -1,0 +1,28 @@
+# dependencies / environments
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+
+# secrets and local config (copy data/config.example.json to data/config.json)
+.env
+.env.*
+data/config.json
+
+# local Chrome profile (logins and cookies)
+radar-chrome/
+
+# internal knowledge base (cloned at runtime into data/kb from the kb repo in config)
+data/kb/
+
+# runtime data and generated output
+data/creatives/
+data/run-history.json
+data/kb-state.json
+logs/
+brag-output/
+work/
+Claude outputs/
+*.log
+.DS_Store
+Thumbs.db
